@@ -1,0 +1,7 @@
+This is a simple question asking for the maxium value of an array of double. The requirement here is that you MUST use recursion to make the function arrayMax. The implementation is quite easy; however, there are something interesting to discuss.
+
+First, the runtime of recursion vs. iteration. Obviously, if we use an iteration implementation, the run time is O(n). A bad recursion which just reduce the size by 1 will have the same run-time in terms of big-O as iteration implementation. We all know that a function call will have some extra overhead, so the bad recursion implementation actually runs for a longer time than the iteration implementation.
+
+If we can halve the size of input in each recursive call, we can actually get a better big-O runtime than iteration. An recursive imeplement using this divide by half and conquer idea yields us a runtime of O(log n). Due to the big overhead of function calls, the advantage of this recursive implementation only shows up when the input n is really big.
+
+Last but not least, we do encourage students to make recursion function tail-recursive as much as they can. Since here, we don't want students to write another helper function. Tail-recursive would be impossible. In most cases, tail-recursive can be done only the function has a parameter that stores the result.  
