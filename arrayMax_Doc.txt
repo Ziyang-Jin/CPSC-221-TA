@@ -6,6 +6,8 @@ If we can halve the size of input in each recursive call, we can actually get a 
 
 Last but not least, we do encourage students to make recursion function tail-recursive as much as they can. Since here, we don't want students to write another helper function. Tail-recursive would be impossible. In most cases, tail-recursive can be done only the function has a parameter that stores the result.  
 
+In the main function, there are an even numebr array and an odd numerb array to test whether this code runs correctly.
+
 To compile the code, the command is as follows:
 g++ -Wall arrayMax.cpp -o arrayMax
 
