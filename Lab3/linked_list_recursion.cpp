@@ -153,7 +153,7 @@ Node* interleave(Node* list1, Node* list2){
         n1->key = list1->key;
         n2->key = list2->key;
         n1->next = n2;
-        n2->next =  interleave(list1->next, list2->next);
+        n2->next = interleave(list1->next, list2->next);
         return n1;
     }
     
