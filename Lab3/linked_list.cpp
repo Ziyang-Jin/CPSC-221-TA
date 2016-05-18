@@ -150,27 +150,18 @@ Node* interleave(Node* list1, Node* list2){
 
     while(list1 && list2) {
         Node* n1 = new Node;
-        n1->key = list1->key;
-        n1->next = NULL;
-        if(!head) {
-            head = n1;
-            curr = head;
-        } else {
-            curr->next = n1;
-            curr = curr->next;
-        }
-        list1 = list1->next;
-
         Node* n2 = new Node;
+        n1->key = list1->key;
         n2->key = list2->key;
+        n1->next = n2;
         n2->next = NULL;
         if(!head) {
-            head = n2;
-            curr = head;
+            head = n1;
         } else {
-            curr->next = n2;
-            curr = curr->next;
+            curr->next = n1;
         }
+        curr = n2;
+        list1 = list1->next;
         list2 = list2->next;
     }
     
