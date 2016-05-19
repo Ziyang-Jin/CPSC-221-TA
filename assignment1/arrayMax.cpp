@@ -20,9 +20,6 @@ double arrayMax(double arr[], int sz, int start) {
         return arr[start];
     double m1 = arrayMax(arr, sz/2, start);
     double m2 = arrayMax(arr, sz-sz/2, start+sz/2);
-    if (m1 > m2)
-        return m1;
-    else 
-        return m2;
+    return (m1 > m2? m1 : m2);
 }
 
