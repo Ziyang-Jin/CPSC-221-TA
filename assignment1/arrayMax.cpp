@@ -6,8 +6,8 @@ double arrayMax(double arr[], int sz, int start);
 
 int main() {
 
-    double a[10] = {10,5,23,34,5,6,7,18,59,10};
-    double b[9] = {31,2,63,24,5,16,7,48,9};
+    double a[10] = {10.5,5.87,23.12,34.27,5.01,6.35,7.86,18.00,59.84,10.37};
+    double b[9] = {31.12,2.35,63.48,24.43,5.66,16.33,7.99,48.64,9.82};
     
     cout << arrayMax(a, 10, 0) << endl;
     cout << arrayMax(b, 9, 0) << endl;
