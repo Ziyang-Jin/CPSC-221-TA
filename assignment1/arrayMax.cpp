@@ -1,3 +1,4 @@
+// This one is the code without applying parallelism, so it still runs in O(n).
 #include <iostream>
 
 using namespace std;
