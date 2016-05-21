@@ -9,7 +9,7 @@ Last but not least, we do encourage students to make recursion function tail-rec
 In the main function, there are an even numebr array and an odd numerb array to test whether this code runs correctly.
 
 To compile the code, the command is as follows:
-g++ -Wall arrayMax.cpp -o arrayMax
+g++ -fopenmp arrayMax_OpenMP.cpp -o arrayMax
 
 To run the program, the command is as follows:
 ./arrayMax
