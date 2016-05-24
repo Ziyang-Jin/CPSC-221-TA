@@ -1,7 +1,5 @@
 #ifdef _LINKEDLIST_H_
-
 #include <stdexcept>
-
 using namespace std;
 
 // helper function for deep copy
