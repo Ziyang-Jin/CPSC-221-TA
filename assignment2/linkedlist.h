@@ -1,7 +1,8 @@
 // File:        linkedlist.h
 // Author:      Geoffrey Tien
-// Date:        2016-05-21
+// Date:        2016-05-24
 // Description: Declaration of a doubly-linked list template class for CPSC 221 assignment #2
+//              This file should not be modified
 
 #ifndef _LINKEDLIST_H_
 #define _LINKEDLIST_H_
@@ -38,17 +39,17 @@ private:
   Node<T>* front; // references to the front
   Node<T>* back;  //  and back of the list
 
-
-  // helper function for deep copy
-  // Used by copy constructor and operator=
+                  // helper function for deep copy
+                  // Used by copy constructor and operator=
   void CopyList(const LinkedList& ll);
 
   // helper function for deep delete
   // Used by destructor and copy/assignment
   void DeleteList();
 
+  #include "linkedlistprivate.h" // declare your private helper functions this file
+
 public:
-  
   // default constructor
   LinkedList();
 
