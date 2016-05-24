@@ -10,10 +10,10 @@ a2test : $(OBJS)
 ticket.o : ticket.h ticket.cpp
 	$(CC) $(CFLAGS) ticket.cpp -o ticket.o
 
-ccqueue.o : ccqueue.h ccqueue.cpp ticket.o linkedlist.h linkedlist.cpp
+ccqueue.o : ccqueue.h ccqueue.cpp ticket.o linkedlist.h linkedlistprivate.h linkedlist.cpp
 	$(CC) $(CFLAGS) ccqueue.cpp -o ccqueue.o
 
-a2simpledriver.o : linkedlist.h linkedlist.cpp a2simpledriver.cpp
+a2simpledriver.o : linkedlist.h linkedlistprivate.h linkedlist.cpp a2simpledriver.cpp
 	$(CC) $(CFLAGS) a2simpledriver.cpp -o a2simpledriver.o
 
 clean :
