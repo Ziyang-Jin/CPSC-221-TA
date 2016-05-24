@@ -70,6 +70,3 @@ bool CCQueue::MoveDown(int index) {
 int CCQueue::Size() const {
     return tickets.Size();
 }
-
-
-
