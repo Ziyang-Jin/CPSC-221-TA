@@ -1,11 +1,7 @@
-#include <iostream>
 #include <string>
-
 #include "ccqueue.h"
 #include "ticket.h"
 #include "linkedlist.h"
-
-using namespace std;
 
 // default constructor
 // maxticketid begins at 0
