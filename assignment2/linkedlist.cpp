@@ -268,19 +268,8 @@ T LinkedList<T>::ElementAt(int p) const {
 // list2 = list2 -> should do nothing
 template <typename T>
 LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& ll) {
-    int cmp_size = ll.Size();
-    if(size == cmp_size) {
-        bool same = true;
-        for(int i = 0; i < cmp_size; i++) {
-            if(ElementAt(i) != ll.ElementAt(i)) {
-                same = false;
-                break;
-            }
-        }
-        if(same)
-            return *this;
-    }
-    CopyList(ll);
+    if(this != &ll)
+        CopyList(ll);
     return *this;
 }
 #endif
