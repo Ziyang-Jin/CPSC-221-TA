@@ -21,7 +21,7 @@ CCQueue::CCQueue() {
 bool CCQueue::Add(string customer, string complaint) {
     if(customer == "" || complaint == "")
         return false;
-    Ticket* t = new Ticket(maxticketid, customer, complaint);
+    Ticket* t = new Ticket(maxticketid+1, customer, complaint);
     tickets.InsertBack(*t);
     maxticketid++;
     return true;
