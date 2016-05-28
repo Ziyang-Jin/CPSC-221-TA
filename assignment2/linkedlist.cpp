@@ -5,19 +5,8 @@ using namespace std;
 template <typename T>
 void LinkedList<T>::CopyList(const LinkedList& ll) {
     DeleteList();
-    int copy_size = ll.size;
-    if(copy_size) {
-        front = new Node<T>(ll.ElementAt(0));
-        Node<T> *pred = front, *temp;
-        for(int i = 1; i < copy_size; i++) {
-            temp = new Node<T>(ll.ElementAt(i));
-            temp->prev = pred;
-            pred->next = temp;
-            pred = temp;
-        }
-        back = pred;
-        size += copy_size;
-    }
+    for(int i = 0; i < ll.size; i++)
+        InsertBack(ll.ElementAt(i));
 }
 
 template <typename T>
