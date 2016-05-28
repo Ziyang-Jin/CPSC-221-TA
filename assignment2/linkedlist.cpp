@@ -60,13 +60,11 @@ LinkedList<T>::~LinkedList() {
 template <typename T>
 void LinkedList<T>::InsertFront(T item) {
     Node<T> *temp = new Node<T>(item);
-    if(size == 0) {
+    if(size++ == 0) {
         front = back = temp;
-        size++;
     } else {
         temp->next = front;
         front->prev = temp;
-        size++;
         front = temp;
     }
 }
