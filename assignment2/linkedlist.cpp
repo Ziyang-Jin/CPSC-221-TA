@@ -162,7 +162,7 @@ T LinkedList<T>::RemoveAt(int p) {
 template <typename T>
 void LinkedList<T>::Append(const LinkedList& ll) {
     Node<T> *temp;
-    int append_size = ll.Size();
+    int append_size = ll.size;
     for(int i = 0; i < append_size; i++) {
         temp = new Node<T>(ll.ElementAt(i));
         back->next = temp;
