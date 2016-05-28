@@ -217,6 +217,7 @@ void LinkedList<T>::RemoveDuplicates() {
             temp->next->prev = temp->prev;
             temp = temp->next;
             delete dele;
+            size--;
         } else { // no duplicates, go to next
             temp = temp->next;
         }
