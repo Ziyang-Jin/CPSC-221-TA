@@ -1,6 +1,5 @@
 #ifdef _LINKEDLIST_H_
 #include <stdexcept>
-using namespace std;
 
 template <typename T>
 void LinkedList<T>::CopyList(const LinkedList& ll) {
@@ -51,7 +50,7 @@ void LinkedList<T>::InsertBack(T item) {
 
 template <typename T>
 void LinkedList<T>::InsertAt(T item, int p) {
-    if(p < 0 || p > size) throw invalid_argument("invalid index");  
+    if(p < 0 || p > size) throw std::invalid_argument("invalid index");  
     if(p != 0 && p != size) {
         Node<T> *temp = new Node<T>(item);
         Node<T> *mark = front;
@@ -67,7 +66,7 @@ void LinkedList<T>::InsertAt(T item, int p) {
 
 template <typename T>
 T LinkedList<T>::RemoveAt(int p) {
-    if(p < 0 || p >= size) throw invalid_argument("invalid index");
+    if(p < 0 || p >= size) throw std::invalid_argument("invalid index");
     size--;
     Node<T>* temp = front;
     if(p == 0) {
@@ -147,7 +146,7 @@ bool LinkedList<T>::Contains(T item) const {
 
 template <typename T>
 T LinkedList<T>::ElementAt(int p) const {
-    if(p < 0 || p > (size-1)) throw invalid_argument("invalid index");
+    if(p < 0 || p > (size-1)) throw std::invalid_argument("invalid index");
     Node<T> *curr = front;
     while(p--) curr = curr->next;
     return curr->data;
