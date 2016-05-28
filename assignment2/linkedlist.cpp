@@ -126,10 +126,11 @@ bool LinkedList<T>::Contains(T item) const {
 
 template <typename T>
 T LinkedList<T>::ElementAt(int p) const {
-    if(p < 0 || p > (size-1)) throw std::invalid_argument("invalid index");
-    Node<T> *curr = front;
-    while(p--) curr = curr->next;
-    return curr->data;
+    if(p >= 0 && p < size) {
+        Node<T> *curr = front;
+        while(p--) curr = curr->next;
+        return curr->data;
+    } else throw std::invalid_argument("invalid index");
 }
 
 template <typename T>
