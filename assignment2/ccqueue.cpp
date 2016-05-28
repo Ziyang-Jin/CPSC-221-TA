@@ -21,9 +21,8 @@ CCQueue::CCQueue() {
 bool CCQueue::Add(string customer, string complaint) {
     if(customer == "" || complaint == "")
         return false;
-    Ticket t(maxticketid+1, customer, complaint);
+    Ticket t(++maxticketid, customer, complaint);
     tickets.InsertBack(t);
-    maxticketid++;
     return true;
 }
 
@@ -43,8 +42,7 @@ Ticket CCQueue::Service() {
 bool CCQueue::MoveUp(int index) {
     if(index == 0 || index >= tickets.Size())
         return false;
-    Ticket t = tickets.RemoveAt(index);
-    tickets.InsertAt(t, index-1);
+    tickets.InsertAt(tickets.RemoveAt(index), index-1);
     return true;
 }
 
@@ -55,8 +53,7 @@ bool CCQueue::MoveUp(int index) {
 bool CCQueue::MoveDown(int index) {
     if(index >= tickets.Size()-1)
         return false;
-    Ticket t = tickets.RemoveAt(index);
-    tickets.InsertAt(t, index+1);
+    tickets.InsertAt(tickets.RemoveAt(index), index+1);
     return true;
 }
 
