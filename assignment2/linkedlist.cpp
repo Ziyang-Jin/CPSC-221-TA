@@ -128,31 +128,21 @@ T LinkedList<T>::RemoveAt(int p) {
     if(p < 0 || p >= size) // invalid index 
             throw invalid_argument("invalid index");
     size--;
-    // Remove Front:
+    Node<T>* temp = front;
     if(p == 0) {
-        Node<T> *temp = front;
-        T d = temp->data;
         front = front->next;
         if(size == 0) back = NULL;
-        delete temp;
-        return d;
-    }
-    // Remove Back:
-    if(p == size) {
-        Node<T> *temp = back;
-        T d = temp->data;
+    } else if(p == size) {
+        temp = back;
         back = back->prev;
-        delete temp;
-        return d;
+    } else {
+        while(p--)
+            temp = temp->next;
+        temp->prev->next = temp->next;
+        temp->next->prev = temp->prev;
     }
-    // Remove Middle:
-    Node<T>* mark = front;
-    while(p--)
-        mark = mark->next;
-    T d = mark->data;
-    mark->prev->next = mark->next;
-    mark->next->prev = mark->prev;
-    delete mark;
+    T d = temp->data;
+    delete temp;
     return d;
 }
 
