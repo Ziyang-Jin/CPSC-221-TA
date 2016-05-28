@@ -32,25 +32,21 @@ LinkedList<T>::~LinkedList() { DeleteList(); }
 template <typename T>
 void LinkedList<T>::InsertFront(T item) {
     Node<T> *temp = new Node<T>(item);
-    if(size++ == 0) {
-        front = back = temp;
-    } else {
+    if(size++ != 0) {
         temp->next = front;
         front->prev = temp;
         front = temp;
-    }
+    } else front = back = temp;
 }
 
 template <typename T>
 void LinkedList<T>::InsertBack(T item) {
     Node<T> *temp = new Node<T>(item);
-    if(size++ == 0) {
-        front = back = temp;
-    } else {
+    if(size++ != 0) {
         temp->prev = back;
         back->next = temp;
         back = temp;
-    }
+    } else front = back = temp;
 }
 
 template <typename T>
