@@ -53,7 +53,7 @@ void LinkedList<T>::InsertAt(T item, int p) {
     if(p > 0 && p < size) {
         Node<T> *temp = new Node<T>(item);
         Node<T> *mark = front;
-        while(p-- > 0) mark = mark->next;
+        while(p--) mark = mark->next;
         temp->prev = mark->prev;
         temp->next = mark;
         mark->prev->next = temp;
