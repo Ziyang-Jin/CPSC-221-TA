@@ -90,31 +90,20 @@ void LinkedList<T>::Append(const LinkedList& ll) { for(int i = 0; i < ll.size; i
 
 template <typename T>
 void LinkedList<T>::RemoveDuplicates() {
+    if(size < 2) return;
     Node<T> *temp = front, *check;
-    bool dup;
-    while(temp) {
+    while(temp != back) {
         check = temp->next;
-        dup = false;
-        while(check) {
-            if(temp->data == check->data) {
-                dup = true;
-                break;
-            }
-            check = check->next;
-        }
-        if(dup) { // has duplicates 
+        while(check && check->data != temp->data) check = check->next;
+        if(check) { // has duplicates 
             Node<T> *dele = temp;
-            if(temp == front)
-                front = front->next;
-            else
-                temp->prev->next = temp->next;
+            if(temp == front) front = front->next;
+            else temp->prev->next = temp->next;
             temp->next->prev = temp->prev;
             temp = temp->next;
             delete dele;
             size--;
-        } else { // no duplicates, go to next
-            temp = temp->next;
-        }
+        } else temp = temp->next;
     }
 }
 
