@@ -43,9 +43,7 @@ LinkedList<T>::LinkedList() : size(0), front(NULL), back(NULL) {}
 
 // copy constructor, performs deep copy of list elements
 template <typename T>
-LinkedList<T>::LinkedList(const LinkedList& ll) {
-    size = 0;
-    front = back = NULL;
+LinkedList<T>::LinkedList(const LinkedList& ll) : size(0), front(NULL), back(NULL) {
     CopyList(ll);
 }
 
