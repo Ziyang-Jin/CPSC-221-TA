@@ -26,7 +26,6 @@ void LinkedList<T>::CopyList(const LinkedList& ll) {
 // Used by destructor and copy/assignment
 template <typename T>
 void LinkedList<T>::DeleteList() {
-    if(!size) return;
     Node<T> *curr = front, *temp;
     while(curr) {
         temp = curr;
