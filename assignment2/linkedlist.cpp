@@ -7,7 +7,7 @@ using namespace std;
 template <typename T>
 void LinkedList<T>::CopyList(const LinkedList& ll) {
     DeleteList();
-    int copy_size = ll.Size();
+    int copy_size = ll.size;
     if(copy_size) {
         front = new Node<T>(ll.ElementAt(0));
         Node<T> *pred = front, *temp;
