@@ -5,8 +5,7 @@ using namespace std;
 template <typename T>
 void LinkedList<T>::CopyList(const LinkedList& ll) {
     DeleteList();
-    for(int i = 0; i < ll.size; i++)
-        InsertBack(ll.ElementAt(i));
+    for(int i = 0; i < ll.size; i++) InsertBack(ll.ElementAt(i));
 }
 
 template <typename T>
