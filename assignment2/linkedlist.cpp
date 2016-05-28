@@ -86,17 +86,7 @@ T LinkedList<T>::RemoveAt(int p) {
 }
 
 template <typename T>
-void LinkedList<T>::Append(const LinkedList& ll) {
-    Node<T> *temp;
-    int append_size = ll.size;
-    for(int i = 0; i < append_size; i++) {
-        temp = new Node<T>(ll.ElementAt(i));
-        back->next = temp;
-        temp->prev = back;
-        back = back->next;
-    }
-    size += append_size;
-}
+void LinkedList<T>::Append(const LinkedList& ll) { for(int i = 0; i < ll.size; i++) InsertBack(ll.ElementAt(i)); }
 
 template <typename T>
 void LinkedList<T>::RemoveDuplicates() {
