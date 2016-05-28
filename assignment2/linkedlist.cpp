@@ -127,22 +127,21 @@ template <typename T>
 T LinkedList<T>::RemoveAt(int p) {
     if(p < 0 || p >= size) // invalid index 
             throw invalid_argument("invalid index");
+    size--;
     // Remove Front:
     if(p == 0) {
         Node<T> *temp = front;
         T d = temp->data;
         front = front->next;
-        size--;
         if(size == 0) back = NULL;
         delete temp;
         return d;
     }
     // Remove Back:
-    if(p == (size-1)) {
+    if(p == size) {
         Node<T> *temp = back;
         T d = temp->data;
         back = back->prev;
-        size--;
         delete temp;
         return d;
     }
@@ -153,7 +152,6 @@ T LinkedList<T>::RemoveAt(int p) {
     T d = mark->data;
     mark->prev->next = mark->next;
     mark->next->prev = mark->prev;
-    size--;
     delete mark;
     return d;
 }
