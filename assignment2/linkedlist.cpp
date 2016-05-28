@@ -4,7 +4,8 @@
 template <typename T>
 void LinkedList<T>::CopyList(const LinkedList& ll) {
     DeleteList();
-    for(int i = 0; i < ll.size; i++) InsertBack(ll.ElementAt(i));
+    for(int i = 0; i < ll.size; i++) 
+        InsertBack(ll.ElementAt(i));
 }
 
 template <typename T>
@@ -59,14 +60,18 @@ void LinkedList<T>::InsertAt(T item, int p) {
         mark->prev->next = temp;
         mark->prev = temp;
         size++;
-    } else if(p == 0) InsertFront(item);
-    else if (p == size) InsertBack(item);
-    else throw std::invalid_argument("invalid index");
+    } else if(p == 0) 
+        InsertFront(item);
+    else if 
+        (p == size) InsertBack(item);
+    else 
+        throw std::invalid_argument("invalid index");
 }
 
 template <typename T>
 T LinkedList<T>::RemoveAt(int p) {
-    if(p < 0 || p >= size) throw std::invalid_argument("invalid index");
+    if(p < 0 || p >= size) 
+        throw std::invalid_argument("invalid index");
     size--;
     Node<T>* temp = front;
     if(p == 0) {
@@ -86,7 +91,10 @@ T LinkedList<T>::RemoveAt(int p) {
 }
 
 template <typename T>
-void LinkedList<T>::Append(const LinkedList& ll) { for(int i = 0; i < ll.size; i++) InsertBack(ll.ElementAt(i)); }
+void LinkedList<T>::Append(const LinkedList& ll) { 
+    for(int i = 0; i < ll.size; i++) 
+        InsertBack(ll.ElementAt(i)); 
+}
 
 template <typename T>
 void LinkedList<T>::RemoveDuplicates() {
@@ -94,7 +102,8 @@ void LinkedList<T>::RemoveDuplicates() {
         Node<T> *temp = front, *check;
         while(temp != back) {
             check = temp->next;
-            while(check && check->data != temp->data) check = check->next;
+            while(check && check->data != temp->data)  
+                check = check->next;
             if(check) { // has duplicates 
                 Node<T> *dele = temp;
                 if(temp == front) front = front->next;
@@ -103,7 +112,8 @@ void LinkedList<T>::RemoveDuplicates() {
                 temp = temp->next;
                 delete dele;
                 size--;
-            } else temp = temp->next;
+            } else 
+                temp = temp->next;
         }
     }
 }
@@ -130,7 +140,8 @@ T LinkedList<T>::ElementAt(int p) const {
         Node<T> *curr = front;
         while(p--) curr = curr->next;
         return curr->data;
-    } else throw std::invalid_argument("invalid index");
+    } else 
+        throw std::invalid_argument("invalid index");
 }
 
 template <typename T>
