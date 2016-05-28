@@ -50,8 +50,7 @@ void LinkedList<T>::InsertBack(T item) {
 
 template <typename T>
 void LinkedList<T>::InsertAt(T item, int p) {
-    if(p < 0 || p > size) throw std::invalid_argument("invalid index");  
-    else if(p != 0 && p != size) {
+    if(p > 0 && p < size) {
         Node<T> *temp = new Node<T>(item);
         Node<T> *mark = front;
         while(p-- > 0) mark = mark->next;
@@ -61,7 +60,8 @@ void LinkedList<T>::InsertAt(T item, int p) {
         mark->prev = temp;
         size++;
     } else if(p == 0) InsertFront(item);
-    else InsertBack(item);
+    else if (p == size) InsertBack(item);
+    else throw std::invalid_argument("invalid index");
 }
 
 template <typename T>
