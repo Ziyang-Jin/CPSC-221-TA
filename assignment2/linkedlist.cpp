@@ -134,7 +134,7 @@ void LinkedList<T>::Append(const LinkedList& ll) {
 
 template <typename T>
 void LinkedList<T>::RemoveDuplicates() {
-    Node<T> *temp = front, *check, *dele;
+    Node<T> *temp = front, *check;
     bool dup;
     while(temp) {
         check = temp->next;
@@ -147,7 +147,7 @@ void LinkedList<T>::RemoveDuplicates() {
             check = check->next;
         }
         if(dup) { // has duplicates 
-            dele = temp;
+            Node<T> *dele = temp;
             if(temp == front)
                 front = front->next;
             else
