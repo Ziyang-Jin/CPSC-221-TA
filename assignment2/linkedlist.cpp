@@ -69,31 +69,18 @@ template <typename T>
 void LinkedList<T>::InsertAt(T item, int p) {
     if(p < 0 || p > size) // invalid index
         throw invalid_argument("invalid index");  
-    if(size++ == 0) { // insert to an empty list
-        front = new Node<T>(item);
-        back = front;
-        return;
-    }
-    Node<T> *temp = new Node<T>(item);
-    if(p == 0) { // insertFront
-        temp->next = front;
-        front->prev = temp;
-        front = temp;
-        return;
-    }
-    if(p+1 == size) { // insertBack
-        temp->prev = back;
-        back->next = temp;
-        back = temp;
-        return;
-    }
-    Node<T> *mark = front; // insertMiddle
-    while(p-- > 0)
-        mark = mark->next;
-    temp->prev = mark->prev;
-    temp->next = mark;
-    mark->prev->next = temp;
-    mark->prev = temp;
+    if(p != 0 && p != size) {
+        Node<T> *temp = new Node<T>(item);
+        Node<T> *mark = front;
+        while(p-- > 0)
+            mark = mark->next;
+        temp->prev = mark->prev;
+        temp->next = mark;
+        mark->prev->next = temp;
+        mark->prev = temp;
+        size++;
+    } else if(p == 0) InsertFront(item);
+    else InsertBack(item);
 }
 
 template <typename T>
