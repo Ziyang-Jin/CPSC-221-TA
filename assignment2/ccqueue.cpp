@@ -6,9 +6,7 @@
 // default constructor
 // maxticketid begins at 0
 // note that tickets does not need to be re-declared
-CCQueue::CCQueue() {
-    maxticketid = 0;
-}
+CCQueue::CCQueue() { maxticketid = 0; }
 
 // MUTATORS
 
@@ -60,6 +58,4 @@ bool CCQueue::MoveDown(int index) {
 // ACCESSORS
 
 // returns the number of tickets
-int CCQueue::Size() const {
-    return tickets.Size();
-}
+int CCQueue::Size() const { return tickets.Size(); }
