@@ -67,8 +67,7 @@ void LinkedList<T>::InsertBack(T item) {
 
 template <typename T>
 void LinkedList<T>::InsertAt(T item, int p) {
-    if(p < 0 || p > size) // invalid index
-        throw invalid_argument("invalid index");  
+    if(p < 0 || p > size) throw invalid_argument("invalid index");  
     if(p != 0 && p != size) {
         Node<T> *temp = new Node<T>(item);
         Node<T> *mark = front;
@@ -85,8 +84,7 @@ void LinkedList<T>::InsertAt(T item, int p) {
 
 template <typename T>
 T LinkedList<T>::RemoveAt(int p) {
-    if(p < 0 || p >= size) // invalid index 
-            throw invalid_argument("invalid index");
+    if(p < 0 || p >= size) throw invalid_argument("invalid index");
     size--;
     Node<T>* temp = front;
     if(p == 0) {
@@ -96,8 +94,7 @@ T LinkedList<T>::RemoveAt(int p) {
         temp = back;
         back = back->prev;
     } else {
-        while(p--)
-            temp = temp->next;
+        while(p--) temp = temp->next;
         temp->prev->next = temp->next;
         temp->next->prev = temp->prev;
     }
