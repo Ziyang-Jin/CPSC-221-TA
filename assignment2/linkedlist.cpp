@@ -163,21 +163,16 @@ void LinkedList<T>::RemoveDuplicates() {
 }
 
 template <typename T>
-int LinkedList<T>::Size() const {
-    return size;
-}
+int LinkedList<T>::Size() const { return size; }
 
 template <typename T>
-bool LinkedList<T>::IsEmpty() const {
-    return !size;
-}
+bool LinkedList<T>::IsEmpty() const { return !size; }
 
 template <typename T>
 bool LinkedList<T>::Contains(T item) const {
     Node<T> *curr = front;
     while(curr) {
-        if(curr->data == item)
-            return true;
+        if(curr->data == item) return true;
         curr = curr->next;
     }
     return false;
@@ -185,18 +180,15 @@ bool LinkedList<T>::Contains(T item) const {
 
 template <typename T>
 T LinkedList<T>::ElementAt(int p) const {
-    if(p < 0 || p > (size-1))
-        throw invalid_argument("invalid index");
+    if(p < 0 || p > (size-1)) throw invalid_argument("invalid index");
     Node<T> *curr = front;
-    while(p--)
-        curr = curr->next;
+    while(p--) curr = curr->next;
     return curr->data;
 }
 
 template <typename T>
 LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& ll) {
-    if(this != &ll)
-        CopyList(ll);
+    if(this != &ll) CopyList(ll);
     return *this;
 }
 #endif
