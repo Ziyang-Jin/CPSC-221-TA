@@ -5,7 +5,7 @@
 using namespace std;
 
 int * x;
-int comps;
+int comps; // Global variable as required
 
 void swap(int & a, int & b) {
 	int tmp = a;
@@ -17,13 +17,13 @@ int randint(int a, int b) {
 	return a + (rand() % (b - a + 1));
 }
 
+// implementation of qc
 int qc(int n) {
     if(n > 1) {
         int p = randint(0,n-1);
         return n-1 + qc(p) + qc(n-p-1);
-    } else {
+    } else
         return 0;
-    }
 }
 
 void quicksort(int a, int b) {
@@ -49,6 +49,7 @@ void quicksort(int a, int b) {
 int main(int argc, char *argv[]) {
         int avg = 0;
         int qc_comps = 0;
+        // a big for loop to let it done repeatedly
         for(int i = 0; i < REP; i++) {
 
 	srand(time(0));
